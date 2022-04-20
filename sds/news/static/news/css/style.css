@@ -1,0 +1,96 @@
+﻿/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
+/* Blocks */
+@import "header.css";
+@import "footer.css";
+@import "contents.css";
+
+
+html, body {
+	/* width: 100%; */
+	height: 100%;
+	color: #333333;
+	font-size: 16px;
+	line-height: 1.25px; /* это грубая ошибка. Однако была замечена очень поздно*/
+	font-family: "Open Sans";	
+	
+}
+
+h1{
+	font-size:24px;
+	font-weight: 600;
+}
+
+/* Standart My Style for sites */
+
+.container{
+	min-height: 100%;
+	width: 100%;
+	max-width: 1170px;
+	margin: 0 auto;
+	display: table;
+	/* display: flex;
+	flex-direction: column; */
+	
+}
+
+.container::before{
+  content: " ";
+  display: table;
+}
+
+.container::after{
+  content: " ";
+  display: table;
+	clear: both;
+}
+
+a{
+	color:#333333;
+	}
+	
+	a,
+	a:hover {
+		text-decoration: none;
+	}
+	a:focus {
+		text-decoration: none;
+	}
+	a:hover {
+		text-decoration: none;
+	}
+	
+	h1,h2,h3,h4,h5,h6{
+		position: relative;
+	}
+	
+
+
+	*:before, *after{
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	
+	body::-webkit-scrollbar {
+		width: 8px;
+		height: 8px;
+	 }
+		
+	 body::-webkit-scrollbar-track {
+		background-color: transparent;
+		border-radius: 100px;
+	 }
+		
+	 body::-webkit-scrollbar-thumb {
+		background-color: #FF7A00;
+		border-radius: 50px;
+	 }
+	
+
+
+
+
+

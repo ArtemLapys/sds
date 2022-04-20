@@ -1,0 +1,117 @@
+﻿.header{
+	box-shadow: black;
+	-webkit-box-shadow: none;
+	/*background-color: black;*/
+	border-bottom: 0.5px solid #e8e8e8;
+	height: 55px;
+	width: 100%;
+	z-index: 1000;
+	
+
+}
+
+.nav{
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+
+}
+
+.nav__left{
+	margin: 1rem 0px 0rem 10px;
+	/* color:#FF7A00; */
+	
+}
+
+.nav__left__name{
+	font-size: 1.5rem;
+	font-weight: 700;
+	color:#FF7A00;
+}
+
+.nav__left__names{
+	font-weight: 300;
+	font-size: 0.8rem;
+	display: block;
+	position: relative;
+	margin: 1rem 0px 0rem 0rem;
+	color: rgba(0,0,0,0.45)
+}
+
+.nav__logo{
+	/* width: 2.7rem; */
+	/* height: 2.7rem; */
+	display: block;
+	float:left;
+	margin: 0.3rem 0px 0.3rem 0rem;
+}
+
+
+
+
+.nav__right>ul>li{
+	float:left;
+	list-style: none;
+	margin: 6px 0 0 0;
+	font-size: 1rem;
+	padding-right: 1.4rem;
+	
+}
+
+.nav__right>ul>li>a{
+	text-decoration: none;
+	position: relative;
+	display:block;
+	
+
+
+}
+
+
+.nav__right>ul>li> .last{
+	font-size:1.3rem;
+	padding-right:0rem;
+}
+
+/* 
+.nav__right .main:before{
+  height: 3px;
+	left:-3px;
+	text-align: center;
+  background: #FF7A00;
+	position: absolute;
+  border-radius: 5px 5px 0 0;
+  content: "";
+  bottom: -17px;
+	width: 110%;
+  -webkit-transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+  -moz-transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+  -ms-transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+
+  transform-origin: bottom;;
+  transform: scaleX(1);
+} */
+
+.nav__right>ul>li>a:before{
+  height: 3px;
+	/* left:-3px; */
+	text-align: center;
+  background: #FF7A00;
+	position: absolute;
+  border-radius: 2px 2px 0 0;
+  content: "";
+  bottom: -32px;
+	width: 100%;
+  -webkit-transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+  -moz-transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+  -ms-transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+
+  transform-origin: bottom;;
+  transform: scaleX(0);
+
+}
+
+.nav__right>ul>li>a:hover:before{
+	transform: scaleX(1.0);
+
+}

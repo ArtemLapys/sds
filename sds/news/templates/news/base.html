@@ -1,0 +1,79 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{{title}}</title>
+		<link type="text/css" href="{% static 'news/css/style.css' %}" rel="stylesheet" />
+		<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> -->
+		<link rel="shortcut icon" href="{% static 'news/images/main.ico' %}" type="image/x-icon" />
+	</head>
+
+<body>
+	{% block navMenu %}
+	<div class="header">
+		<div class="container">
+			<a href="{% url 'main' %}"><img class="nav__logo" src="{% static 'news/images/logo.svg' %}"  alt="Logo"></a>
+			<div class="nav">
+
+				<div class="nav__left">
+					<a class="nav__left__name" href="{% url 'main' %}">SDS</a>
+					<p class="nav__left__names">
+						<a class="nav__left__names" href="{% url 'main' %}">выбор с умом</a>
+					</p>
+				</div>
+
+
+				<div class="nav__right">
+					<ul>
+						{% for m in menuHeader %}
+							{% if not forloop.last %}
+								<li><a href="{% url m.url_name %}">{{m.title}}</a></li>
+							{% else %}
+								<li><a class="last" href="{% url m.url_name %}">{{m.title}}</a></li>
+							{% endif %}
+						{% endfor %}
+						</ul>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	{% endblock navMenu %}
+
+	<div class="container">
+	{% block content %}
+	
+		
+	
+	{% endblock content %}
+</div>
+	
+<footer class="footer">
+	<div class="container">
+		<div class="footer__nav">
+			<div class="footer__nav__left">
+				<a class="nav__left__name" href="{% url 'main' %}">smart device selection</a>
+				<p class="footer__nav__left__names">
+					<a class="nav__left__names" href="{% url 'main' %}">MOROZOV COMPANY</a>
+				</p>
+			</div>
+
+
+			<div class="footer__nav__right">
+				<ul>
+					{% for m in menuFooter %}
+						{% if not forloop.last %}
+							<li><a href="{% url m.url_name %}">{{m.title}}</a></li>
+						{% else %}
+						<a class="last" href="{% url m.url_name %}"><button class="button__footer">
+							{{m.title}}</button></a>
+						{% endif %}
+					{% endfor %}
+					</ul>
+			</div>
+
+	</div>
+</footer>
+</body>
+</html>

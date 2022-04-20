@@ -1,0 +1,36 @@
+﻿{% extends 'news/base.html' %}
+
+{% block content %}
+<main class="mainNews">
+	<div class="posts">
+		<ul>
+			
+			{% for p in posts %}
+
+				<a href="{{ p.get_absolute_url }}">
+					<li>
+						<div class="post">
+							<div class="img__post">
+
+								{% if p.image %}
+									<img class="image__post" src="{{p.image.url}}">
+								{% endif %}
+						</div>
+							<div class="text__post">
+								<div class="content__post">
+								<h1 class="headPostTitle">{{ p.mini_title }}</h1>
+								<p class="dataPost">{{p.time_create_post|date:"d.m.Y H:i"}}</p>
+								<p class="headPostContent">{{p.content|truncatewords:70}}</p> <!--linebreaks для content - добавляет переносы в тексте-->
+							</div>
+						</div>
+					</div>
+					</li>
+				</a>
+			{% endfor %}
+		
+		</ul>
+	</div>
+
+
+</main>
+{% endblock %}
