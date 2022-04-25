@@ -1,0 +1,24 @@
+﻿{% extends 'news/base.html' %}
+
+{% block content %}
+<main class="mainAddPost">
+	<h1 class="headPostTitle">{{ title }}</h1>
+	<form action="{% url 'addPost' %}" method="post" enctype="multipart/form-data" >
+	{% csrf_token %}
+
+	<div class="mainError">{{ form.non_field_errors }}</div>
+	{% for f in form %}
+	<p class="formAddPost">
+		<label class="titleAddPost" for="{{ f.id_for_label }}">{{f.label}}:</label>
+			{{f}}</p>
+
+	<!-- <p class="formAddPost"><label class="titleAddPost" for="{{ f.id_for_label }}">{{f.label}}:</label>
+		<span class="fieldAddPost">{{ f }}</span></p> -->
+	<div>{{ f.errors }}</div>
+	{% endfor %}
+
+	<button class="buttonAddPost" type="submit">Добавить</button>
+</form>
+</main>
+
+{% endblock %}

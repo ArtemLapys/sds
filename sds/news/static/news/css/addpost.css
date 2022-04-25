@@ -1,0 +1,38 @@
+﻿.mainAddPost {
+	margin: 35px 0;
+	padding: 35px 45px;
+	box-shadow: 0px 0px 10px rgba(255, 122, 0, 0.25);
+	border-radius: 20px;
+	line-height: normal;
+}
+
+
+.titleAddPost{
+	font-weight: 300;
+}
+
+.buttonAddPost{
+	border-radius: 50px;
+	background-color: transparent;
+	border: 2px solid #FF7A00;
+	font-weight: 300;
+	padding: 10px 65px;
+	font-size: 1.1rem;
+	justify-content: center;
+	
+	-webkit-transition: all .2s ease-in-out,
+	transform .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out,
+	transform .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out,
+	transform .2s ease-in-out;
+	
+}
+
+
+.buttonAddPost:hover{
+	color:white;
+	background-color: #FF7A00;
+	font-size: 1.2rem;
+	cursor: pointer;
+}

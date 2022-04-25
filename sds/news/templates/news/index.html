@@ -2,7 +2,8 @@
 
 {% block content %}
 <main class="mainNews">
-	<div class="posts">
+<!-- <a href="#" onclick="loadPost()" >Загрузить</a> -->
+	<div class="posts" id="hhh">
 		<ul>
 			
 			{% for p in posts %}
@@ -18,7 +19,7 @@
 						</div>
 							<div class="text__post">
 								<div class="content__post">
-								<h1 class="headPostTitle">{{ p.mini_title }}</h1>
+								<h1 class="headPostTitle">{{ p.title }}</h1>
 								<p class="dataPost">{{p.time_create_post|date:"d.m.Y H:i"}}</p>
 								<p class="headPostContent">{{p.content|truncatewords:70}}</p> <!--linebreaks для content - добавляет переносы в тексте-->
 							</div>
@@ -33,4 +34,34 @@
 
 
 </main>
+
+<!-- <script>
+var xhr = new XMLHttpRequest();
+
+// function go() {
+//   xhr.open('GET', 'http://127.0.0.1:8000/json', false);
+// 	xhr.send();
+// 	document.getElementById("hhh").innerHTML = xhr.responseText;
+// 	//alert("11111");
+// }
+function loadPost() {
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://127.0.0.1:8000/json', true);
+
+xhr.onreadystatechange = function() {
+			if (xhr.status != 200) {
+				// обработать ошибку
+				alert(xhr.status + ': ' + xhr.statusText);
+			} else {
+				// вывести результат
+				// alert(xhr.responseText);
+			}
+
+		}
+
+		xhr.send();
+
+}
+
+</script> -->
 {% endblock %}

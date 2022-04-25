@@ -6,6 +6,8 @@
 @import "header.css";
 @import "footer.css";
 @import "contents.css";
+@import "post.css";
+@import "addpost.css";
 
 
 html, body {

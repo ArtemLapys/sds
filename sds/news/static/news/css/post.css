@@ -1,0 +1,53 @@
+﻿.mainPost{
+	margin: 35px 0;
+	padding: 35px 45px;
+	box-shadow: 0px 0px 10px rgba(255,122,0,0.25);
+	border-radius: 20px;
+	line-height: normal;
+}
+
+
+
+.mainText{
+	font-size: 1.25rem;
+	font-weight: 300;
+	width: 100%;
+	margin: 0 10 10 0;
+	text-align: justify;
+
+}
+
+
+.imgPost{
+	margin: 35px;
+	flex: 0 0 31.01%;
+	min-height: 600px;
+	position: relative;
+
+}
+
+.mainImagePost{
+	border-radius: 20px;
+	width: 100%;
+	height: 100%;
+	object-fit:cover;
+	object-position: center;
+	position: absolute;
+	top:0;
+	left:0;
+}
+
+.dataTimePost{
+	font-weight: 300;
+	color: rgba(0,0,0,0.8)
+}
+
+.datePost{
+	margin-left: 35px;
+}
+
+.dataTimeEditPost{
+	font-weight: 300;
+	color: gray;
+	font-size: 0.9rem;
+}
