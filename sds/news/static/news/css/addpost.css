@@ -9,6 +9,7 @@
 
 .titleAddPost{
 	font-weight: 300;
+	font-size: 1.1rem;
 }
 
 .buttonAddPost{
@@ -18,7 +19,8 @@
 	font-weight: 300;
 	padding: 10px 65px;
 	font-size: 1.1rem;
-	justify-content: center;
+	margin: 0 auto;
+	display: block;
 	
 	-webkit-transition: all .2s ease-in-out,
 	transform .2s ease-in-out;
@@ -35,4 +37,22 @@
 	background-color: #FF7A00;
 	font-size: 1.2rem;
 	cursor: pointer;
+
 }
+
+.mainError{
+	font-size: 1.2rem;
+	background-color:crimson;
+	color:white;
+}
+
+.labelError{
+	color:crimson;
+	font-size: 0.8rem;
+}
+
+.errorlist{
+		list-style: none;
+}
+
+

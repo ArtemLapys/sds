@@ -6,10 +6,10 @@
 		<title>{{title}}</title>
 		<link type="text/css" href="{% static 'news/css/style.css' %}" rel="stylesheet" />
 		<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> -->
-		<link rel="shortcut icon" href="{% static 'news/images/main.ico' %}" type="image/x-icon" />
+		<link rel="shortcut icon" href="{% static 'news/images/favicon.ico' %}" type="image/png"  />
 	</head>
 
-<body>
+<body >
 	{% block navMenu %}
 	<div class="header">
 		<div class="container">
@@ -28,7 +28,7 @@
 					<ul>
 						{% for m in menuHeader %}
 							{% if not forloop.last %}
-								<li><a href="{% url m.url_name %}">{{m.title}}</a></li>
+								<li><a href="{% url m.url_name %}" >{{m.title}}</a></li>
 							{% else %}
 								<li><a class="last" href="{% url m.url_name %}">{{m.title}}</a></li>
 							{% endif %}
@@ -41,11 +41,11 @@
 	</div>
 	{% endblock navMenu %}
 
-	<div class="container">
+	<div class="container" >
 	{% block content %}
 	
 		
-	
+
 	{% endblock content %}
 </div>
 	
@@ -75,5 +75,8 @@
 
 	</div>
 </footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="../../static/news/js/menuHigh.js"></script>
 </body>
 </html>

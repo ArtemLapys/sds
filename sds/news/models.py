@@ -12,7 +12,7 @@ class Post(models.Model):
     # mini_title = models.CharField(max_length=155, verbose_name="Заголовок на главной страницы" ) #заголовок для главной страницы
     # это крупный заголовок, который появляется в статье
     title = models.CharField(max_length=255, verbose_name="Заголовок статьи")
-    slug = models.SlugField(max_length=255, unique=True,
+    slug = models.SlugField(max_length=255,  unique=True,
                             db_index=True, verbose_name="URL Post")
     content = models.TextField(blank=True, verbose_name="Текст статьи")
     image = models.ImageField(

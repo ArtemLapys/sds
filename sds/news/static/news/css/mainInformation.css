@@ -1,0 +1,97 @@
+﻿.main__information{
+margin-top: 35px;
+/* margin-bottom: 25px; */
+border-radius: 20px;
+padding:35px 45px;
+box-shadow: 0px 0px 10px rgba(255, 122, 0, 0.25);
+
+}
+
+
+.block__information{
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+}
+
+/* left information */
+
+.logo__information {
+	width: 55px;
+	height: 55px;
+
+}
+.header__currency{
+	color: #FF7A00;
+	font-size: 1.5rem;
+	font-weight: 600;
+	text-align: center;
+
+}
+
+.dollar{
+	display: inline-block;
+	width: 100%;
+	padding: 5px 17.5px 0 35px;
+}
+
+.euro {
+	display: inline-block;
+	width: 100%;
+	padding: 5px 17.5px;
+}
+
+.bitcoin {
+	display: inline-block;
+	width: 100%;
+	padding: 5px 17.5px;
+}
+
+.additional__block{
+	display: flex;
+}
+
+.text__currency{
+	padding-top: 5px;
+	display: flex;
+}
+
+.bitcoin__text__currency{
+	padding-top: 5px;
+	text-align: center;
+}
+
+.left__text__currency{
+	text-align: center;
+}
+
+.rigth__text__currency{
+	padding-left:15px;
+}
+
+
+
+/* rigth informatino */
+.last_news{
+	text-align: right;
+	margin-left: 100px;
+	margin-top: 5px;
+}
+
+.text__last__news{
+	font-size: 0.9rem;
+	font-weight: 300;
+	color: rgba(0,0,0,0.5);
+	margin:0;
+}
+.link__last__news{
+	padding-top: 5px;
+	margin:0;
+}
+
+.link__last__news a{
+	font-size: 1.125rem;
+	font-weight: 600;
+	color:#FF7A00;
+	line-height: normal;
+}

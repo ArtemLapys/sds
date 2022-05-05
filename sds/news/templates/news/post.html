@@ -1,25 +1,40 @@
 ﻿{% extends 'news/base.html' %}
 
+
 {% block content %}
-<main class="mainPost">
-	<h1 class="headPostTitle">{{ post.title }}</h1>
-	<p class = "dataTimePost">
-		<span class="timePost">🕙 {{ post.time_create_post.time }} </span>
-		<span class="datePost">📅 {{ post.time_create_post.date }} </p>
-	</p>
-
-	<div class = "mainText">
-		{{post.content|linebreaks}}
-	</div>
-	<div class="imgPost">
-		{% if post.image %}
-		<img class="mainImagePost" src="{{post.image.url}}">
-		{% endif %}
-	</div>
-
-	{% if post.time_create_post != post.time_edit_post %}
-	<p class="dataTimeEditPost">📝Поледний раз пост был отредактирован {{ post.time_edit_post.date }} в {{ post.time_edit_post.time }}.</p>
-	{% endif %}
+<main class="mainPost" id='content'>
 	
+	<script src="../../static/news/js/post.js"></script>
+
+	
+
 </main>
+
+{% include "news/mainInformation.html" %}
+
 {% endblock %}
+
+
+
+
+
+	<!-- // <h1 class="headPostTitle">{{ post.title }}</h1>
+	// <p class="dataTimePost">
+	// 	<span class="timePost">🕙 {{ post.time_create_post.time }} </span>
+	// 	<span class="datePost">📅 {{ post.time_create_post.date }}
+	// </p>
+	// </p>
+	
+	// <div class="mainText">
+	// 	{{post.content|linebreaks}}
+	// </div>
+	// <div class="imgPost">
+	// 	{% if post.image %}
+	// 	<img class="mainImagePost" src="{{post.image.url}}">
+	// 	{% endif %}
+	// </div>
+	
+	// {% if post.time_create_post != post.time_edit_post %}
+	// <p class="dataTimeEditPost">📝Поледний раз пост был отредактирован {{ post.time_edit_post.date }} в {{
+	// 	post.time_edit_post.time }}.</p>
+	// {% endif %} -->

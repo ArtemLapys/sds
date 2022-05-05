@@ -2,6 +2,8 @@
 from sqlite3 import connect, Error
 from django.db import models
 
+
+
 def pr(records):
 	if len(records) != 0:
 		for p in records:
@@ -17,6 +19,9 @@ def question(records):
 			if answer.lower() == "да":
 				temp_result_question.append(rec[0])
 		return temp_result_question
+
+
+	
 
 def read_table_tags():
 	try:
@@ -39,8 +44,29 @@ def read_table_tags():
 			sql_select_query = """SELECT * FROM PHONE"""
 		cursor.execute(sql_select_query)
 		records_phone = cursor.fetchall()
+		
+		while len(records_phone) == 0:
+			if len(records_phone) != 0:
+				pr(records_phone)
+			else:
+				print(result_question)
+				result_question = result_question[:-1]
+				# print(record)
+				# result_question = result_question.pop(record)
+				print(result_question)
 
-		pr(records_phone)
+				if len(result_question) != 0:
+					sql_select_query = """SELECT * FROM PHONE 
+												JOIN TAG_PHONE ON PHONE.ID = TAG_PHONE.ID_PHONE 
+												WHERE TAG_PHONE.ID_TAG IN (""" + ', '.join(map(str, result_question)) + """)
+												GROUP BY TAG_PHONE.ID_PHONE
+												HAVING COUNT(DISTINCT TAG_PHONE.ID_TAG) = """ + str(len(result_question))
+				else:
+					sql_select_query = """SELECT * FROM PHONE"""
+				cursor.execute(sql_select_query)
+				records_phone = cursor.fetchall()
+				pr(records_phone)
+
 
 		
 

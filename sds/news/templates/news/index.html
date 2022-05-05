@@ -1,39 +1,36 @@
 ﻿{% extends 'news/base.html' %}
 
 {% block content %}
-<main class="mainNews">
-<!-- <a href="#" onclick="loadPost()" >Загрузить</a> -->
-	<div class="posts" id="hhh">
-		<ul>
-			
-			{% for p in posts %}
 
-				<a href="{{ p.get_absolute_url }}">
-					<li>
-						<div class="post">
-							<div class="img__post">
+<main class="mainNews" id="main_news">
+	{% include 'news/mainInformation.html' %}
+	<div class="posts" >
+		<ul id='content' >
 
-								{% if p.image %}
-									<img class="image__post" src="{{p.image.url}}">
-								{% endif %}
-						</div>
-							<div class="text__post">
-								<div class="content__post">
-								<h1 class="headPostTitle">{{ p.title }}</h1>
-								<p class="dataPost">{{p.time_create_post|date:"d.m.Y H:i"}}</p>
-								<p class="headPostContent">{{p.content|truncatewords:70}}</p> <!--linebreaks для content - добавляет переносы в тексте-->
-							</div>
-						</div>
-					</div>
-					</li>
-				</a>
-			{% endfor %}
-		
+	
 		</ul>
-	</div>
+	</div> 
+
+	
+<script src="../../static/news/js/feed.js"> </script>
+<!-- <script src="../../static/imakewebthings-waypoints-34d9f6d/lib/noframework.waypoints.min.js"></script>
+<script src="../../static/news/js/jquery-3.6.0.min.js"></script>
+<script src="../../static/imakewebthings-waypoints-34d9f6d/src/shortcuts/infinite.js"></script> -->
+
 
 
 </main>
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- <script>
 var xhr = new XMLHttpRequest();
@@ -64,4 +61,30 @@ xhr.onreadystatechange = function() {
 }
 
 </script> -->
+
+
+	<!-- /*		
+				{% for p in posts %}
+	
+					<a href="{{ p.get_absolute_url }}">
+						<li>
+							<div class="post">
+								<div class="img__post">
+	
+									{% if p.image %}
+										<img class="image__post" src="{{p.image.url}}">
+									{% endif %}
+							</div>
+								<div class="text__post">
+									<div class="content__post">
+									<h1 class="headPostTitle">{{ p.title }}</h1>
+									<p class="dataPost">{{p.time_create_post|date:"d.m.Y H:i"}}</p>
+									<p class="headPostContent">{{p.content|truncatewords:70}}</p> 
+								</div>
+							</div>
+						</div>
+						</li>
+					</a>
+				{% endfor %} 
+				-->
 {% endblock %}

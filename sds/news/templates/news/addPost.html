@@ -7,15 +7,18 @@
 	{% csrf_token %}
 
 	<div class="mainError">{{ form.non_field_errors }}</div>
-	{% for f in form %}
-	<p class="formAddPost">
-		<label class="titleAddPost" for="{{ f.id_for_label }}">{{f.label}}:</label>
-			{{f}}</p>
+	<div class="fieldFormAddPost">
+		{% for f in form %}
+		<p class="formAddPost">
+			<label class="titleAddPost" for="{{ f.id_for_label }}">{{f.label}}:</label>
+				<p>{{f}}</p></p>
+				<!-- <p class="formAddPost"><label class="titleAddPost" for="{{ f.id_for_label }}">{{f.label}}:</label>
+						<span class="fieldAddPost">{{ f }}</span></p> -->
+				<div class="labelError">{{ f.errors }}</div>
+				{% endfor %}
+	</div>
 
-	<!-- <p class="formAddPost"><label class="titleAddPost" for="{{ f.id_for_label }}">{{f.label}}:</label>
-		<span class="fieldAddPost">{{ f }}</span></p> -->
-	<div>{{ f.errors }}</div>
-	{% endfor %}
+	
 
 	<button class="buttonAddPost" type="submit">Добавить</button>
 </form>
