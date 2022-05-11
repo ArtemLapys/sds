@@ -1,0 +1,14 @@
+﻿.main__information__result{
+
+	border-radius: 20px;
+	padding:35px 45px;
+	box-shadow: 0px 0px 10px rgba(255, 122, 0, 0.25);
+}
+
+.logo__information__Result{
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 90px;
+	margin-left: 15px;
+} 

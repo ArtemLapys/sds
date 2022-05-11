@@ -1,0 +1,237 @@
+﻿
+{% extends 'news/base.html' %}
+<!-- {% load static %} -->
+
+
+
+{% block content %}
+
+<main class="mainSmart">
+	
+	<div class="smarts">
+		{% if smarts != False %}
+		{% if tagsEdit == True %}
+		{% include 'smart/infoEditTags.html' %}
+		{% else %}
+		{% include 'smart/informationResultSDS.html' %}
+		{% endif %}
+		<ul id='content'>
+			{% for s in smarts %}
+			<a href="#popup" class="popup-link">
+			<li>
+				
+				<div class="smart">
+					<div class="img__smart">
+					
+						{% if s.image %}
+						<img class="image__smart" src="{{s.image.url}}" alt="{{s.title}}">
+						{% endif %}
+					</div>
+					<div class="text__smart">
+						<h1 class="headSmartTitle">{{ s.title }}</h1> 
+						<div class="content__smart">
+							<span class="colloum">
+								<p class="headSmartContent">Платформа: {{s.platform }}</p>
+								<p class="headSmartContent">Диагональ экрана: {{s.diagonal }}"</p>
+								<p class="headSmartContent">Оперативная память: {{s.ram }} ГБ</p>
+								<p class="headSmartContent">Постоянная память: {{s.rom }} ГБ</p>
+								<p class="headSmartContent">Емкость батареии: {{s.battery }} мАч</p>
+							</span>
+							<br>
+							<span class="colloum">
+								{% if s.nfc == True %}
+								<p class="headSmartContent">Поддержка NFC: Есть</p>
+								{% else %}
+								<p class="headSmartContent">Поддержка NFC: Отсутствует</p>
+								{% endif %}
+								<p class="headSmartContent">Количество SIM: {{s.sim }} SIM</p>
+
+								{% if s.five_g == True %}
+								<p class="headSmartContent">Поддержка 5G: Есть</p>
+								{% else %}
+								<p class="headSmartContent">Поддержка 5G: Отсутствует</p>
+								{% endif %}
+								
+								{% if s.gps == True %}
+								<p class="headSmartContent">Поддержка GPS: Есть</p>
+								{% else %}
+								<p class="headSmartContent">Поддержка GPS: Отсутствует</p>
+								{% endif %}
+
+								{% if s.jack == True %}
+								<p class="headSmartContent">Разъем 3.5мм: Есть</p>
+								{% else %}
+								<p class="headSmartContent">Разъем 3.5мм: Отсутствует</p>
+								{% endif %}
+							</span>
+							<br>
+							<span class="colloum">
+								<p class="headSmartContent">Частота процессора: {{s.processor_frequency }} ГГц</p>
+								<p class="headSmartContent">Гарантия производителя: {{s.warranty }} мес.</p>
+								<p class="priceSmartContent">Цена: <span class="priceContent">{{ s.price }}<span class="rub">₽</span></span></p>
+
+							</span>
+							
+						</div>
+					</div>
+				</div>
+			</li>
+			</a>
+			{% endfor %}
+		</ul>
+		{% endif %}
+		{% if smarts == False %}
+		{% include 'smart/infoNoneObject.html' %}
+				<ul id='content'>
+					{% for s in smartsAll %}
+					<a href="#popup" class="popup-link">
+						<li>
+				
+							<div class="smart">
+								<div class="img__smart">
+				
+									{% if s.image %}
+									<img class="image__smart" src="{{s.image.url}}" alt="{{s.title}}">
+									{% endif %}
+								</div>
+								<div class="text__smart">
+									<h1 class="headSmartTitle">{{ s.title }}</h1>
+									<div class="content__smart">
+										<span class="colloum">
+											<p class="headSmartContent">Платформа: {{s.platform }}</p>
+											<p class="headSmartContent">Диагональ экрана: {{s.diagonal }}"</p>
+											<p class="headSmartContent">Оперативная память: {{s.ram }} ГБ</p>
+											<p class="headSmartContent">Постоянная память: {{s.rom }} ГБ</p>
+											<p class="headSmartContent">Емкость батареии: {{s.battery }} мАч</p>
+										</span>
+										<br>
+										<span class="colloum">
+											{% if s.nfc == True %}
+											<p class="headSmartContent">Поддержка NFC: Есть</p>
+											{% else %}
+											<p class="headSmartContent">Поддержка NFC: Отсутствует</p>
+											{% endif %}
+											<p class="headSmartContent">Количество SIM: {{s.sim }} SIM</p>
+				
+											{% if s.five_g == True %}
+											<p class="headSmartContent">Поддержка 5G: Есть</p>
+											{% else %}
+											<p class="headSmartContent">Поддержка 5G: Отсутствует</p>
+											{% endif %}
+				
+											{% if s.gps == True %}
+											<p class="headSmartContent">Поддержка GPS: Есть</p>
+											{% else %}
+											<p class="headSmartContent">Поддержка GPS: Отсутствует</p>
+											{% endif %}
+				
+											{% if s.jack == True %}
+											<p class="headSmartContent">Разъем 3.5мм: Есть</p>
+											{% else %}
+											<p class="headSmartContent">Разъем 3.5мм: Отсутствует</p>
+											{% endif %}
+										</span>
+										<br>
+										<span class="colloum">
+											<p class="headSmartContent">Частота процессора: {{s.processor_frequency }} ГГц</p>
+											<p class="headSmartContent">Гарантия производителя: {{s.warranty }} мес.</p>
+											<p class="priceSmartContent">Цена: <span class="priceContent">{{ s.price }}<span
+														class="rub">₽</span></span></p>
+				
+										</span>
+				
+									</div>
+								</div>
+							</div>
+						</li>
+					</a>
+					{% endfor %}
+				</ul>
+		{% endif %}
+		{% if smartsDop != False %}
+			{% include 'smart/infoMyBe.html' %}
+
+
+				<ul id='content'>
+					{% for s in smartsDop %}
+					<a href="#popup" class="popup-link">
+						<li>
+				
+							<div class="smart">
+								<div class="img__smart">
+				
+									{% if s.image %}
+									<img class="image__smart" src="{{s.image.url}}" alt="{{s.title}}">
+									{% endif %}
+								</div>
+								<div class="text__smart">
+									<h1 class="headSmartTitle">{{ s.title }}</h1>
+									<div class="content__smart">
+										<span class="colloum">
+											<p class="headSmartContent">Платформа: {{s.platform }}</p>
+											<p class="headSmartContent">Диагональ экрана: {{s.diagonal }}"</p>
+											<p class="headSmartContent">Оперативная память: {{s.ram }} ГБ</p>
+											<p class="headSmartContent">Постоянная память: {{s.rom }} ГБ</p>
+											<p class="headSmartContent">Емкость батареии: {{s.battery }} мАч</p>
+										</span>
+										<br>
+										<span class="colloum">
+											{% if s.nfc == True %}
+											<p class="headSmartContent">Поддержка NFC: Есть</p>
+											{% else %}
+											<p class="headSmartContent">Поддержка NFC: Отсутствует</p>
+											{% endif %}
+											<p class="headSmartContent">Количество SIM: {{s.sim }} SIM</p>
+				
+											{% if s.five_g == True %}
+											<p class="headSmartContent">Поддержка 5G: Есть</p>
+											{% else %}
+											<p class="headSmartContent">Поддержка 5G: Отсутствует</p>
+											{% endif %}
+				
+											{% if s.gps == True %}
+											<p class="headSmartContent">Поддержка GPS: Есть</p>
+											{% else %}
+											<p class="headSmartContent">Поддержка GPS: Отсутствует</p>
+											{% endif %}
+				
+											{% if s.jack == True %}
+											<p class="headSmartContent">Разъем 3.5мм: Есть</p>
+											{% else %}
+											<p class="headSmartContent">Разъем 3.5мм: Отсутствует</p>
+											{% endif %}
+										</span>
+										<br>
+										<span class="colloum">
+											<p class="headSmartContent">Частота процессора: {{s.processor_frequency }} ГГц</p>
+											<p class="headSmartContent">Гарантия производителя: {{s.warranty }} мес.</p>
+											<p class="priceSmartContent">Цена: <span class="priceContent">{{ s.price }}<span
+														class="rub">₽</span></span></p>
+				
+										</span>
+				
+									</div>
+								</div>
+							</div>
+						</li>
+					</a>
+					{% endfor %}
+				</ul>
+			{% endif %}
+	</div>
+	<div id="popup" class="popup">
+		<div class="popup__body">
+			<div class="popup__content">
+				<a href="#" class="popup__close close-popup">X</a>
+				<div class="popup__title">Мы поможем попробовать найти данный товар в следующих Маркет-Плейсах</div>
+				<div class="popup__cont">
+					<a href="#">Ситилинк</a> 
+					<!-- https://www.citilink.ru/search/?text= -->
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+<script src="../../../static/news/js/popups.js"></script>
+
+{% endblock %}

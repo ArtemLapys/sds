@@ -31,30 +31,30 @@ menuFooter = [{'title': "Правообладатель", 'url_name': 'copyright
 
 
 def mainPage(request):  # link HttpRequest
-    posts = Post.objects.all()
+    # posts = Post.objects.all()
     dataForPage = {
         'title': 'SDS News',
-        'posts': posts,
+        # 'posts': posts,
         'menuHeader': menuHeader,
         'menuFooter': menuFooter
     }
     return render(request, 'news/index.html', context=dataForPage)
 
 
-def sds(request):
-    dataForPage = {
+# def sds(request):
+#     dataForPage = {
 
-    'menuHeader': menuHeader,
-    'menuFooter': menuFooter,
-    'title': "sds",
+#     'menuHeader': menuHeader,
+#     'menuFooter': menuFooter,
+#     'title': "sds",
 
-    }
+#     }
 
-    return render(request, 'news/post.html', context=dataForPage)   
+#     return render(request, 'news/post.html', context=dataForPage)   
 
 
-def marketplace(request):
-    return HttpResponse("marketplace")
+# def marketplace(request):
+#     return HttpResponse("marketplace")
 
 
 def contacts(request):  # link HttpRequest
@@ -83,27 +83,6 @@ def jobs(request):
 
 def en(request):
     return HttpResponse("en")
-
-# def postJson(request, post_id, post_slug):
-#     post = get_object_or_404(Post, pk=post_id)
-#     post_json = serializers.serialize('json', post)
-#     return HttpResponse(post_json, content_type='application/json')
-
-
-# def shwPost(request, post_id, post_slug):
-#     post = postJson(request, post_id)
-#     dataForPage = {
-#         'post': post,
-#         'menuHeader': menuHeader,
-#         'menuFooter': menuFooter,
-#         'title': post.title,
-#     }
-
-#     return render(request, 'news/post.html', context=dataForPage)
-
-        # post_json = serializers.serialize('json', post)
-        # return HttpResponse(post_json, content_type='application/json')
-
 
 
 def showPost(request, post_id, post_slug):

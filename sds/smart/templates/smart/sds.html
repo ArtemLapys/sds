@@ -1,0 +1,142 @@
+﻿
+{% extends 'news/base.html' %}
+{% load floattags %}
+
+{% block content %}
+{% include 'smart/informationMainSDS.html' %}
+<main class="mainSDS" id='content'>
+	<div class="main__head__center">Давайте подберем для Вас параметры смартфона</div>
+	<form method="get" class="parameters__smart" action="result" name="form__smart">
+		<div class="parameters__collum">
+			<div class="platform">
+				<p class="title__element__form">Платформа</p>	
+				<p class="platform__radio">
+					<input class="radioAndroid" id="idRadioAndroidInput" type="radio" checked name="radioPlatform" value="Android"><label for="idRadioAndroidInput">Android</label></p>
+				<p class="platform__radio">
+					<input class = "radioInput" id="idRadioIOSInput" type="radio" name="radioPlatform" value="IOS"><label for="idRadioIOSInput">IOS</label></p>
+			</div>
+			<div class="price range__container">
+				<p class="title__element__form">Цена, ₽</p>
+				<div class="price__range">
+					<span>от {{priceAll.price__min}}₽</span>
+					<span>до {{priceAll.price__max}}₽</span>
+				</div>
+				<input id="rangePriceInput"  value="{{priceAll.price__avg}}" type="range" min="{{priceAll.price__min}}" max="{{priceAll.price__max}}" name="rangePrice" ><div class="price__current range__value">{{priceAll.price__avg}}₽</div>
+			</div>
+
+
+			<div class="diagonal range__container">
+				<p class="title__element__form">Диагональ экрана, "</p>
+				<div class="diagonal__range">
+					<span>от {{diagonalAll.diagonal__min|formatted_float}}”</span>
+					<span>до {{diagonalAll.diagonal__max|formatted_float}}”</span>
+				</div>
+				<input id="rangeDiagonalInput" type="range" step="0.1" min="{{diagonalAll.diagonal__min|formatted_float}}" max="{{diagonalAll.diagonal__max|formatted_float}}" name="rangeDiagonal" value="{{diagonalAll.diagonal__avg|formatted_float}}">
+				<div class="diagonal__current range__value">{{diagonalAll.diagonal__avg|formatted_float}}"</div>
+			</div>
+
+
+
+			<div class="ram range__container">
+				<p class="title__element__form">Объем оперативной памяти, ГБ</p>
+				<div class="ram__range">
+					<span>от {{ramAll.ram__min}} ГБ</span>
+					<span>до {{ramAll.ram__max}} ГБ</span>
+				</div>
+				<input id="rangeRamInput" type="range" min="{{ramAll.ram__min}}" max="{{ramAll.ram__max}}" name="rangeRam" value="{{ramAll.ram__avg}}">
+			<div class="ram__current range__value">{{ramAll.ram__avg}} ГБ</div>
+			</div>
+
+
+
+		</div>
+		<div class="parameters__collum range__container">
+			<div class="rom">
+				<p class="title__element__form">Объем встроенной памяти, ГБ</p>
+				<div class="rom__range">
+					<span>от {{romAll.rom__min}} ГБ</span>
+					<span>до {{romAll.rom__max}} ГБ</span>
+				</div>
+				<input id="rangeRomInput" type="range" min="{{romAll.rom__min}}" max="{{romAll.rom__max}}" name="rangeRom" value="{{romAll.rom__avg}}">
+				<div class="rom__current range__value">{{romAll.rom__avg}} ГБ</div>
+			</div>
+
+
+			<div class="battery range__container">
+				<p class="title__element__form">Емкость батареи, мАч</p>
+				<div class="battery__range">
+					<span>от {{batteryAll.battery__min}} мАч</span>
+					<span>до {{batteryAll.battery__max}} мАч</span>
+				</div>
+				<input id="rangeBatteryInput" type="range" min="{{batteryAll.battery__min}}" max="{{batteryAll.battery__max}}" name="rangeBattery" value="{{batteryAll.battery__avg}}">
+				<div class="battery__current range__value">{{batteryAll.battery__avg}} мАч</div>
+			</div>
+
+			<div class="processor range__container">
+				<p class="title__element__form">Частота процессора, ГГц</p>
+				<div class="processor__range">
+					<span>от {{processorAll.processor_frequency__min}} ГГц</span>
+					<span>до {{processorAll.processor_frequency__max}} ГГц</span>
+				</div>
+				<input id="rangeProcessorInput" type="range" min="{{processorAll.processor_frequency__min}}" max="{{processorAll.processor_frequency__max}}" name="rangeProcessor" value="{{processorAll.processor_frequency__avg}}">
+				<div class="processor__current range__value">{{processorAll.processor_frequency__avg}} ГГц</div>
+			</div>
+
+			<p class="title__element__form">Коммуникации</p>
+			<p class="five_g__checkbox">
+				<input class="checkboxFive_g" id="idcheckboxFive_gInput" type="checkbox" name="checkboxFive_g"
+					value="Five_g"><label for="idcheckboxFive_gInput">Технология 5G</label>
+			</p>
+			
+		</div>
+
+		<div class="parameters__collum" style="padding:0;">
+			<p class="title__element__form">Дополнительно</p>
+				<!-- <p class="additionally__checkbox"> -->
+					<p class="nfc__checkbox"><input class="checkboxNfc" id="idcheckboxNfcInput" type="checkbox"  name="checkboxNfc"
+						value="Nfc"><label for="idcheckboxNfcInput">Модуль NFC</label>
+					</p>
+					<p class="gps__checkbox">
+					<input class="checkboxGps" id="idcheckboxGpsInput" type="checkbox"  name="checkboxGps"
+						value="Gps"><label for="idcheckboxGpsInput">Модуль GPS</label>
+					</p>
+					<p class="Jack__checkbox">
+					<input class="checkboxJack" id="idcheckboxJackInput" type="checkbox"  name="checkboxJack"
+						value="Jack"><label for="idcheckboxJackInput">Разъем 3.5мм</label>
+					</p>
+				<!-- </p> -->
+			
+			</p>
+
+		
+			<p class="sim">
+				<p class="title__element__form">Количество SIM</p>
+				<p class="sim__radio">
+					<input class="radioSim" id="idRadio1SimInput" type="radio" name="radioSim"
+						value="1Sim"><label for="idRadio1SimInput">1 SIM</label>
+				</p>
+				<p class="sim__radio">
+					<input id="idRadio2SimInput" type="radio" name="radioSim" checked value="2Sim"><label for="idRadio2SimInput">2 SIM</label>
+				</p>
+			</p>
+
+
+			<div class="warranty range__container">
+			<p class="title__element__form">Гарантия производителя, мес.</p>
+			<div class="warranty__range">
+				<span>от {{warrantyAll.warranty__min}} мес.</span>
+				<span>до {{warrantyAll.warranty__max}} мес.</span>
+			</div>
+			<input id="rangeWarrantyInput" type="range" min="{{warrantyAll.warranty__min}}" max="{{warrantyAll.warranty__max}}" name="rangeWarranty" value="{{warrantyAll.warranty__avg}}">
+			<div class="warranty__current range__value">{{warrantyAll.warranty__avg}} мес.</div>
+			</div>
+							
+		</div>
+
+		<input class="ButtonSend" type="submit" value="Подобрать смартфон">
+	</form>
+</main>
+
+
+<script src="../../../static/news/js/inputRange.js"></script>
+{% endblock %}

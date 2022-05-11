@@ -9,7 +9,12 @@
 @import "post.css";
 @import "addpost.css";
 @import "mainInformation.css";
-
+@import "sds.css";
+@import "sdsResult.css";
+@import "modalSmart.css";
+@import "infrormationMainSDS.css";
+@import "informationResultSDS.css";
+@import "mybe.css";
 
 html, body {
 	/* width: 100%; */

@@ -1,0 +1,138 @@
+﻿/* это файл из другого приложения. Я просто пока не понял как его подключить */
+
+.smarts {
+	line-height: normal;
+}
+
+ul,
+li {
+	/* margin: 0; */
+	padding: 0;
+}
+
+.smarts>ul>li {
+
+	list-style: none;
+	margin-top: 25px;
+	border-radius: 20px;
+	padding: 35px 45px;
+	box-shadow: 0px 0px 10px rgba(255, 122, 0, 0.25);
+	cursor: pointer;
+	border: 2px solid #ffffff;
+
+	-webkit-transition: all .2s ease-in-out, transform .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out, transform .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out, transform .2s ease-in-out;
+}
+
+.smarts>ul>li:hover {
+
+	box-shadow: 0px 0px 10px rgba(255, 122, 0, 0.8);
+
+
+}
+
+.smart {
+	display: flex;
+	/* flex-flow: row nowrap; */
+	position: relative;
+
+}
+
+.text__smart {
+	margin-left: 25px;
+	margin-right: 0px;
+	width: 100%;	
+}
+
+.content__smart {
+	/* display: inline-block; */
+	vertical-align: middle;
+	display: table-row;
+}
+
+.colloum{
+	display: table-cell;
+	width: 35%;
+	vertical-align: top;
+	
+	/* padding: 0 5px; */
+}
+
+.content__smart .colloum:first-child{
+	padding: 0;
+}
+
+.content__smart .colloum:last-child {
+	padding:0;
+	/* width: 100%; */
+	min-width: 270px;
+}
+
+
+
+.headSmartTitle {
+	margin-top: 0;
+	color: #FF7A00;
+	font-size: 1.625rem;
+}
+
+
+.headSmartContent {
+	margin-top: -15px;
+	font-size: 1rem;
+	word-wrap: break-word;
+
+}
+
+.priceSmartContent{
+		margin-top: -15px;
+		font-size: 1rem;
+		word-wrap: break-word;
+		color:#FF7A00;
+		font-size: 1.625rem;
+}
+
+.rub{
+	font-size: 1.8rem;
+}
+
+.priceContent{
+	font-weight: 800;
+}
+
+.img__smart {
+	flex: 0 0 15.01%; /* проверить эту строку*/
+	/* height: 100%; */
+	width: 100%;
+	position: relative;
+	display: flex;
+	overflow: hidden;
+
+
+}
+
+.image__smart {
+	/* border-radius: 20px; */
+
+	width: 100%;
+	/* height: 100%; */
+	object-fit: cover;
+	object-position: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+
+	-webkit-transition: all .2s ease-in-out,
+		transform .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out,
+		transform .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out,
+		transform .2s ease-in-out;
+
+}
+
+
+
+

@@ -4,6 +4,8 @@ from django.views.generic.base import RedirectView
 
 
 from .views import *
+
+from smart.views import *
 from sds import settings
 from django.conf.urls.static import static
 
