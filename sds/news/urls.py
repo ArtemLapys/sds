@@ -34,6 +34,8 @@ urlpatterns = [
     path('api/json/<int:count>', ApiJson, name='json'),
     path('api/json-post/<int:post_id>', postApi, name='postJson'),
 
+    path('api/msgpack/', ApiMsgpack, name='msgpack'),
+
     # AddPost
     path('add-post', AddPost.as_view(), name='addPost'),
 

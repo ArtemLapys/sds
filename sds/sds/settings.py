@@ -132,3 +132,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #Переменные по умочалнию для загрущзки медиа. Они обязательны.
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+SERIALIZATION_MODULES = {
+    "msgpack": "msgpack_serializer.serializer",
+}

@@ -1,9 +1,12 @@
+from ctypes import sizeof
 from re import template
+from tkinter.tix import Tree
 from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponse
 from django.core import serializers
-from django.views import View
+# from django.views import View
 from django.views.generic import ListView, DetailView, CreateView
+
 
 from .forms import *
 # from django.http import JsonResponse
@@ -13,8 +16,14 @@ from .forms import *
 
 from .models import Post
 
-import json
- 
+# import ormsgpack
+import msgpack
+# import msgpack_serializer.serializer
+
+
+import umsgpack
+from nameko_django.serializer import dumps, loads
+
 
 menuHeader = [{'title': "Новости", 'url_name': 'news'},
               {'title': "Выбор смартфона", 'url_name': 'sds'},
@@ -123,13 +132,37 @@ class AddPost(CreateView):
 
 
 def ApiJson(request, count):
-        qs = Post.objects.filter(published=True)[count:count+5]
-        qs_json = serializers.serialize('json', qs)
-        return HttpResponse(qs_json, content_type='application/json')
+    qs = Post.objects.filter(published=True)#[count: count+5]
+    qs_json = serializers.serialize('json', qs)
+    print(qs_json.__sizeof__())
+    return HttpResponse(qs_json, content_type='application/json')
 
 
-
-
+def ApiMsgpack(request):
+    data = {
+        "number": "123",
+    }
+    # qs = Post.objects.filter(published=True)[:1]
+    # data = packb(qs)
+    # qs_json = serializers.serialize('json', qs)
+    # print(qs.__sizeof__())
+    data = msgpack.packb(data)
+    # print(data)
+    # print(data.__sizeof__())
+    # data = msgpack.unpackb(data)
+    # print(data.__sizeof__())
+    # data = dumps(qs)
+    # data = msgpack.unpackb(data)
+    print(data.__sizeof__())
+    # msgpack_serializer = serializers.get_serializer("msgpack")()
+    # data = msgpack_serializer.serialize(qs)
+    # qs_msgpack = msgpack.packb(qs, use_bin_type=True)
+    # qs_unmsgpack = msgpack.unpackb(qs_msgpack, use_list=False, raw=False)
+    # qs_unpack = msgpack.unpack(qs_msgpack, use_list=False, raw=False)
+    # qs_unpack
+    print(type(data))
+    return HttpResponse(data)
+# 
         
 # # Debug Information Pages
 # def json(request):
@@ -196,3 +229,5 @@ def ApiJson(request, count):
 # 		'form': form,
 # 	}
 #     return render(request, 'news/addPost.html', context=dataForPage)
+
+

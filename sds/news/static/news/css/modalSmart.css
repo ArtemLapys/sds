@@ -8,9 +8,10 @@
 	line-height: normal;
 	user-select: none;
 	opacity: 0;
-	visibility: hidden;
-	overflow-y:auto;
+	overflow: hidden;
+	overflow-y: hidden;
 	overflow-x: hidden;
+	visibility: hidden;
 	transition: all 0.8s ease 0s;
 }
 
@@ -65,7 +66,26 @@
 	text-align: center;
 	font-weight: 600;
 	color:#FF7A00;
+	margin:0;
+	padding:0;
 }
-.popup__cont{
-	
+
+.popup__pod__title{
+	font-weight: 300;
+	color:rgba(51, 51, 51, 0.5);
+	padding:0;
+	margin: 5px 0 0 0;
+	text-align: center;
+}
+
+.popup__shops{
+	margin: 35 40 40;
+}
+
+.shops__one__group{
+	left:50%;
+}
+
+.shops__one__group a{
+	left:50%;
 }
