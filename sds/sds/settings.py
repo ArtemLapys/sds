@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'news.apps.NewsConfig',
     'smart.apps.SmartConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -137,3 +138,24 @@ MEDIA_URL = '/media/'
 SERIALIZATION_MODULES = {
     "msgpack": "msgpack_serializer.serializer",
 }
+
+
+# # Конфигурация Channels
+# ASGI_APPLICATION = "olympia.routing.application"
+# CHANNEL_LAYERS = {
+#     'default': {
+#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#         'CONFIG': {
+#             "hosts": [("localhost", 6379)],
+#             "symmetric_encryption_keys": [SECRET_KEY],
+#         },
+#     },
+# }
+
+
+# AUTHENTICATION_BACKENDS = [
+#     "django.contrib.auth.backends.ModelBackend",
+#     "sesame.backends.ModelBackend",
+# ]
+
+# SESAME_MAX_AGE = 30

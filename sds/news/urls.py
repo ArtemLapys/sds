@@ -34,10 +34,17 @@ urlpatterns = [
     path('api/json/<int:count>', ApiJson, name='json'),
     path('api/json-post/<int:post_id>', postApi, name='postJson'),
 
-    path('api/msgpack/', ApiMsgpack, name='msgpack'),
+    path('api/msgpack/<int:count>', ApiMsgpack, name='msgpack'),
+    path('api/msgpack-post/<int:post_id>', PostApiMsg, name='postJson'),
 
     # AddPost
     path('add-post', AddPost.as_view(), name='addPost'),
+
+    path('redirect', redirect, name='redirect'),
+
+    #пути к куки
+    # path('setcookie', setcookie),
+    # path('showcookie', showcookie),
 
 
 ]

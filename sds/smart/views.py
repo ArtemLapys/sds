@@ -126,4 +126,4 @@ def marketplace(request):
 
     }
 
-    return render(request, 'news/post.html', context=dataForPage)
+    return render(request, 'smart/marketplace.html', context=dataForPage)

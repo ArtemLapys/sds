@@ -1,0 +1,20 @@
+﻿{% extends 'news/base.html' %}
+<!-- {% load static %} -->
+
+
+
+{% block content %}
+
+<main class="mainPost" id='content'>
+	<p class="popup__title">Попробуйте найти какой-либо товар в следующих Маркет-Плейсах</p>
+	<p class="popup__pod__title">это те маркетплейсы, с которыми мы сотрудничаем и в которых вы можете найти какой-либо товар</p>
+	<div class="popup__shops__marketplace">
+		<p><a class="shop" href="https://www.citilink.ru/" target="_blank"><img src="../../static/news/images/citilink.png"></a></p>
+		<p><a class="shop" href="https://www.dns-shop.ru/"  target="_blank"><img src="../../static/news/images/dns.png"></a></p>
+		<p><a class="shop" href="https://market.yandex.ru/" target="_blank"><img
+					src="../../static/news/images/yamarket.png"></a></p>
+		<p><a class="shop" href="https://www.svyaznoy.ru"  target="_blank"><img src="../../static/news/images/svyaz.png"></a></p>
+		
+	</div>
+</main>
+{% endblock %}

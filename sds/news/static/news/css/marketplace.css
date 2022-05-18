@@ -1,0 +1,22 @@
+﻿.popup__shops__marketplace{
+	display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+}
+
+.popup__shops__marketplace p{
+	margin: 35px 0;
+}
+
+.popup__shops__marketplace p>a>img{
+	width: 300px;
+	-webkit-transition: all .2s ease-in-out, transform .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out, transform .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out, transform .2s ease-in-out;
+}
+
+.popup__shops__marketplace p>a>img:hover {
+	width: 350px;
+}

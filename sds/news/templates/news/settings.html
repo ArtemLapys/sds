@@ -1,0 +1,24 @@
+﻿{% extends 'news/base.html' %}
+
+{% block content %}
+<main class="mainSDS" id='content'>
+	<div class="main__head__center">Давайте настроим для Вас сайт</div>
+	<form class="formSettings" method="GET" action="../../redirect">
+		<!-- {% csrf_token %} -->
+		<div class="settingsEco">
+			<div class="titleEco">
+				<p class="titleEcoP">Экономить данные</p>
+				<p class="contentEcoP">если вы включите эту настройку, то мы перейдем на получение информации с помощью формата JSON</p>
+			</div>
+			<label class="button-eco">
+				<input type="checkbox" id="checkboxEco" name="buttonEco" value="true">
+				<span class="button-eco-switch"></span>
+			</label>
+		</div>
+		<input class="ButtonSend" type="submit" value="Сохранить настройки">
+
+	</form>
+</main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="../../static/news/js/switchBtn.js"></script>
+{% endblock %}

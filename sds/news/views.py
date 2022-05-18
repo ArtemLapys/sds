@@ -1,11 +1,19 @@
+from asyncio.windows_events import NULL
 from ctypes import sizeof
 from re import template
 from tkinter.tix import Tree
 from django.shortcuts import get_object_or_404, redirect, render
-from django.http import HttpResponse
+from django.http import FileResponse, HttpResponse, HttpResponseRedirect
 from django.core import serializers
 # from django.views import View
 from django.views.generic import ListView, DetailView, CreateView
+from numpy import array
+
+
+from io import BytesIO
+
+
+from requests import request
 
 
 from .forms import *
@@ -40,10 +48,8 @@ menuFooter = [{'title': "Правообладатель", 'url_name': 'copyright
 
 
 def mainPage(request):  # link HttpRequest
-    # posts = Post.objects.all()
     dataForPage = {
         'title': 'SDS News',
-        # 'posts': posts,
         'menuHeader': menuHeader,
         'menuFooter': menuFooter
     }
@@ -71,8 +77,33 @@ def contacts(request):  # link HttpRequest
 
 
 def settingsPage(request):
-    return HttpResponse("settings")
+    dataForPage = {
+        'title': 'SDS Settings',
+        'menuHeader': menuHeader,
+        'menuFooter': menuFooter
+    }
+    return render(request, 'news/settings.html', context=dataForPage)
 
+
+
+
+def redirect(request):
+	if (len(request.GET)==0):
+		buttonEco = None
+		response = HttpResponseRedirect(redirect_to='/')
+		response.delete_cookie("eco", buttonEco)
+		return response
+	elif (request.GET):
+		buttonEco = request.GET["buttonEco"]
+		if buttonEco == "true":
+			response = HttpResponseRedirect(redirect_to='/')
+			response.set_cookie("eco", request.GET["buttonEco"])
+			print(request.GET["buttonEco"])
+			return response
+		else:
+			return HttpResponseRedirect(redirect_to='/')
+	else:
+		return HttpResponseRedirect(redirect_to='/')
 
 def copyright(request):
     return HttpResponse("copyright")
@@ -98,7 +129,6 @@ def showPost(request, post_id, post_slug):
     # post = get_object_or_404(Post, pk=post_id, slug=post_slug)
     post = Post.objects.get(pk=post_id)
     post_json = serializers.serialize('json', [post])
-    # post_js = HttpResponse(post_json, content_type='application/json')
 
     dataForPage = {
         'post': post_json,
@@ -114,7 +144,6 @@ def showPost(request, post_id, post_slug):
 def postApi(request, post_id):
     post = Post.objects.get(pk=post_id)
     post_json = serializers.serialize('json', [post])
-    # post_next = Post.objects.
     return HttpResponse(post_json, content_type='application/json')
 
 
@@ -132,37 +161,63 @@ class AddPost(CreateView):
 
 
 def ApiJson(request, count):
-    qs = Post.objects.filter(published=True)#[count: count+5]
+    qs = Post.objects.filter(published=True)[count: count+5]
     qs_json = serializers.serialize('json', qs)
     print(qs_json.__sizeof__())
     return HttpResponse(qs_json, content_type='application/json')
 
 
-def ApiMsgpack(request):
-    data = {
-        "number": "123",
-    }
-    # qs = Post.objects.filter(published=True)[:1]
-    # data = packb(qs)
-    # qs_json = serializers.serialize('json', qs)
-    # print(qs.__sizeof__())
-    data = msgpack.packb(data)
+def ApiMsgpack(request, count):
+    qs = Post.objects.filter(published=True)[count: count+5]
+    qs_json = serializers.serialize('json', qs)
+    data = msgpack.packb(qs_json)
     # print(data)
-    # print(data.__sizeof__())
+
     # data = msgpack.unpackb(data)
     # print(data.__sizeof__())
     # data = dumps(qs)
     # data = msgpack.unpackb(data)
-    print(data.__sizeof__())
+    # print(data)
+    # print(data.__sizeof__())
     # msgpack_serializer = serializers.get_serializer("msgpack")()
     # data = msgpack_serializer.serialize(qs)
     # qs_msgpack = msgpack.packb(qs, use_bin_type=True)
     # qs_unmsgpack = msgpack.unpackb(qs_msgpack, use_list=False, raw=False)
     # qs_unpack = msgpack.unpack(qs_msgpack, use_list=False, raw=False)
     # qs_unpack
-    print(type(data))
+    # data = int(data)
+    data = data.hex()
+    # print(type(data))
+    # print(data.__sizeof__(q``))
+    return HttpResponse((data))
+    # response = HttpResponse(data)
+
+
+    # response['Content-Type'] = 'text/csv'
+    # return response
+
+def PostApiMsg(request, post_id):
+    post = Post.objects.get(pk=post_id)
+    post_json = serializers.serialize('json', [post])
+    print(post_json.__sizeof__())
+    data = msgpack.packb(post_json)
+    data = data.hex()
+    print(data.__sizeof__())
     return HttpResponse(data)
-# 
+
+
+# def setcookie(request):
+#     set_cookie('dataflair', 'Hello this is your Cookies', max_age=None)
+#     return html
+
+# def showcookie(request):
+#     show = request.COOKIES['dataflair']
+#     html = "<center> New Page <br>{0}</center>".format(show)
+#     return HttpResponse(html)
+
+
+
+
         
 # # Debug Information Pages
 # def json(request):

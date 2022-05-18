@@ -27,7 +27,6 @@ $(function () {
         var link = $(this).attr('href');
  
         if (location == link) {
-			console.log("check")
             $(this).addClass('active__footer');
         }
     });

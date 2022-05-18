@@ -1,0 +1,116 @@
+﻿.formSettings{
+	padding:35px 35px 0;
+}
+
+.settingsEco {
+	display: flex;
+	justify-content: space-between;
+
+}
+
+.button-eco{
+	margin: auto 0;
+	margin-left: 35px;
+}
+
+
+
+.titleEco{
+	max-width: 500px;
+}
+
+.titleEcoP{
+	font-size: 1.5rem;
+	font-weight: 600;
+	padding:0;
+	margin:0;
+}
+
+.contentEcoP{
+	margin:0;
+	padding:0;
+	font-weight: 300;
+	color: rgba(0,0,0, 0.5);
+
+}
+
+.button-eco {
+	display: inline-block;
+	height: 28px;
+	line-height: 28px;
+	margin-right: 10px;
+	position: relative;
+	vertical-align: middle;
+	font-size: 14px;
+	user-select: none;
+}
+
+.button-eco .button-eco-switch {
+	position: relative;
+	display: inline-block;
+	box-sizing: border-box;
+	/* 56 & 28 */
+	border:none;
+	width: 72px; 
+	height: 38px;
+	z-index: 0;
+
+	border-radius: 19px;
+	vertical-align: top;
+	background: #bfbfbf;
+	transition-duration: 300ms;
+}
+
+.button-eco .button-eco-switch:before {
+	content: '';
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	border-radius: 17px;
+	background: white;
+	transition-duration: 300ms;
+}
+
+.button-eco input[type=checkbox] {
+	display: block;
+	width: 0;
+	height: 0;
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+
+/* .button-eco input[type=checkbox]:not(:disabled):active+.button-eco-switch:before {
+	box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
+} */
+
+.button-eco input[type=checkbox]:checked+.button-eco-switch {
+	background: #FF7A00;
+}
+
+.button-eco input[type=checkbox]:checked+.button-eco-switch:before {
+	transform: translateX(34px);
+}
+
+/* Hover */
+.button-eco input[type="checkbox"]:not(:disabled)+.button-eco-switch {
+	cursor: pointer;
+}
+
+/* Disabled */
+.button-eco input[type=checkbox]:disabled+.button-eco-switch {
+	filter: grayscale(70%);
+}
+
+.button-eco input[type=checkbox]:disabled+.button-eco-switch:before {
+	background: #bfbfbf;
+}
+
+/* Focus */
+.button-eco.focused .button-eco-switch:before {
+	box-shadow: inset 0px 0px 4px #FF7A00;
+}
+
